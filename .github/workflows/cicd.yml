@@ -1,0 +1,10 @@
+name: CICD
+on: push
+
+jobs:
+  k8s:
+    runs-on: bharath6379/k8s-web
+
+    steps:
+      - name: k8s-web
+        run: k apply -f deploy.yml
