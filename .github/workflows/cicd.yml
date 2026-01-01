@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: k8s-web
-        uses: actions/k8s-web/checkout@v4
+        uses: k8s-web/actions/checkout@v4
 
 
       - name: k8swebdeploy
