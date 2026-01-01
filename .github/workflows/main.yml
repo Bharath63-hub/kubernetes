@@ -19,8 +19,8 @@ jobs:
       - name: build
         run: docker build -t bharath6379/k8s-web:1.1.26 .
 
-      -name: dockerlogin
-       run: docker login bharath6379
+      - name: dockerlogin
+        run: docker login bharath6379
 
       - name: dockerpush
         run: docker push bharath6379/k8s-web:1.1.26
