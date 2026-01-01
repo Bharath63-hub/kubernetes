@@ -2,9 +2,16 @@ name: CICD
 on: push
 
 jobs:
-  k8s:
-    runs-on: bharath6379/k8s-web
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: k8s-web
-        run: k apply -f deploy.yml
+        uses: actions/checkout@v4
+
+
+      - name: k8swebdeploy
+        run: docker build -t bharath6379/k8s-web:1.1.26 .
+
+      - name: dockerpush
+        run: docker push bharath6379/k8s-web
