@@ -11,7 +11,7 @@ jobs:
 
 
       - name: k8swebdeploy
-        run: cd /k8s-web-h
+        run: cd k8s-web-h
 
       - name: build
         run: docker build -t bharath6379/k8s-web:1.1.26 .
