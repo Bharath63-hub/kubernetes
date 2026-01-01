@@ -9,6 +9,9 @@ jobs:
       - name: k8s-web
         uses: actions/checkout@v4
 
+      - name: k8s-web
+        uses: k8s-web-h/checkout@v4
+
 
       - name: k8swebdeploy
         run: docker build \-f k8s-web-h/dockerfile \-t bharath6379/k8s-web:1.1.26 \.
