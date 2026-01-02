@@ -14,10 +14,10 @@ jobs:
         run: cd k8s-web-h
 
       - name: k8swebdeploy
-        run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \.
+        run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./k8s-web
 
       - name: k8swebdeploy
-        run: cp k8s-web-h/dockerfile \.
+        run: cp k8s-web-h/dockerfile \k8s-web-h/index.mjs \./k8s-web
 
       - name: build
         run: docker build -t bharath6379/k8s-web:1.1.26 .

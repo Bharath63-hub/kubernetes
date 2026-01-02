@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8s-web
-        image: bharath6379/k8s-web:latest
+        image: bharath6379/k8s-web:1.1.26
         resources:
           limits:
             memory: "128Mi"
