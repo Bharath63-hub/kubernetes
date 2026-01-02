@@ -21,7 +21,7 @@ jobs:
          mkdir deploy | cp -r k8s-web-h ./deploy/
 
       - name: build
-        run: docker build -t bharath6379/k8s-web:1.1.26 .
+        run: docker build -t bharath6379/k8s-web:1.1.26 ./deploy/
 
       - name: dockerlogin
         run: |
