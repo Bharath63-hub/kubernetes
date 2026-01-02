@@ -20,7 +20,11 @@ jobs:
         run: docker build -t bharath6379/k8s-web:1.1.26 .
 
       - name: dockerlogin
-        run: docker login -u ${{secrets.bharath6379}} --password-stdin <<< "${{secrets.password}}"
+        run: docker login -u bharath6379
+
+
+      - name: dockelogin
+        run: echo "${{secrets.Bharath@28}}"
 
       - name: dockerpush
         run: docker push bharath6379/k8s-web:1.1.26
