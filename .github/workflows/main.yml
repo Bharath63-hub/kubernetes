@@ -10,14 +10,14 @@ jobs:
         uses: actions/checkout@v4
 
 
-      - name: k8swebdeploy
-        run: cd k8s-web-h
+      # - name: k8swebdeploy
+      #   run: cd k8s-web-h
+
+      # - name: k8swebdeploy
+      #   run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./
 
       - name: k8swebdeploy
-        run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./
-
-      - name: k8swebdeploy
-        run: cp k8s-web-h/dockerfile \k8s-web-h/index.mjs \./
+        run: cp k8s-web-h \./
 
       - name: build
         run: docker build -t bharath6379/k8s-web:1.1.26 .
