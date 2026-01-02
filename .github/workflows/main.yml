@@ -24,7 +24,7 @@ jobs:
 
 
       - name: dockelogin
-        run: echo "${{secrets.Bharath@28}}"
+        run: --password-stdin <<< "${{secrets.docker_password}}"
 
       - name: dockerpush
         run: docker push bharath6379/k8s-web:1.1.26
