@@ -17,7 +17,7 @@ jobs:
       #   run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./
 
       - name: k8swebdeploy
-        run: cp k8s-web-h \./
+        run: cp -r k8s-web-h ./
 
       - name: build
         run: docker build -t bharath6379/k8s-web:1.1.26 .
