@@ -21,11 +21,11 @@ jobs:
          mkdir deploy | cp -r k8s-web-h \deploy.yml \./deploy/
 
       - name: build
-        run: docker build -t bharath6379/k8s-web:1.1.26 ./deploy/k8s-web-h/
+        run: docker build -t bharath6379/k8s-web:${{github.run_number}} ./deploy/k8s-web-h/
 
       - name: dockerlogin
         run: |
          echo "${{secrets.DOCKERPASS}}" | docker login -u ${{secrets.DOCKERUSER}} --password-stdin
 
       - name: dockerpush
-        run: docker push bharath6379/k8s-web:1.1.26
+        run: docker push bharath6379/k8s-web:${{github.run_number}}

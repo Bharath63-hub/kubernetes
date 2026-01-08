@@ -15,10 +15,6 @@ spec:
       containers:
       - name: k8s-web
         image: bharath6379/k8s-web:1.1.26
-        resources:
-           limits:
-            memory: "1024Mi"
-            cpu: "2000m"
         ports:
         - containerPort: 3000
 ---
