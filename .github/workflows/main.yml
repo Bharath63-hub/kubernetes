@@ -35,6 +35,9 @@ jobs:
    runs-on: ubuntu-latest
    needs: build
    steps:
+    - name: k8s-web
+      uses: actions/checkout@v4
+      
     - name: docker pull
       run: docker pull bharath6379/k8s-web:${{github.run_number}}
 
