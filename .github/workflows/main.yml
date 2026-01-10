@@ -46,10 +46,10 @@ jobs:
        git config --global --add safe.directory .
     - name: git pushing
       run: |   
-       git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes 
+       git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git add .
     - name: git pushing
       run: |    
-       \git commit -m "deploy file" \
+       git commit -m "deploy file" \
        git push origin main
       
    
