@@ -1,3 +1,4 @@
+
 name: CICD
 on: workflow_dispatch
 
@@ -39,7 +40,10 @@ jobs:
 
     - name: git push
       run: |
-       git config --global --add safe.directory . \git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git commit -m "deploy file" \
+       git config --global --add safe.directory . 
+    - name: git pushing
+      run: | 
+       \git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git commit -m "deploy file" \
        git push origin main
       
    
