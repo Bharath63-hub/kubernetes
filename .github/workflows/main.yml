@@ -43,7 +43,7 @@ jobs:
        git config --global --add safe.directory . 
     - name: git pushing
       run: | 
-       \git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git commit -m "deploy file" \
+       \git add ./deploy/k8s-web-h \git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git commit -m "deploy file" \
        git push origin main
       
    
