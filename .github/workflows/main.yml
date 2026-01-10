@@ -48,7 +48,7 @@ jobs:
       run: |
        aws s3 sync ./ s3://project-bucket-cicd-1/
        --exclude "*" \
-       --include "1.html"
+       --include "index.html"
        
       
     # - name: docker pull
