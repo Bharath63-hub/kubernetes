@@ -47,7 +47,7 @@ jobs:
     - name: s3 bucket connect
       run: |
        aws s3 sync ./ s3://project-bucket-cicd-1/
-       --exclude: "*"
+       --exclude: "*" \
        --include: "1.html"
        
       
