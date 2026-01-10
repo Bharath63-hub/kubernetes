@@ -44,7 +44,12 @@ jobs:
     - name: git pushing
       run: |
        cd /deploy/k8s-web-h/ \
-       git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git commit -m "deploy file" \
+    - name: git pushing
+      run: |   
+       git add . \git remote add origin  https://github.com/nandhinics741-hash/kubernetes 
+    - name: git pushing
+      run: |    
+       \git commit -m "deploy file" \
        git push origin main
       
    
