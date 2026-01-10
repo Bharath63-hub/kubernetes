@@ -1,31 +1,66 @@
+
 name: CICD
-on: push
+on: workflow_dispatch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: k8s-web
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: k8s-web
+  #       uses: actions/checkout@v4
 
 
-      # - name: k8swebdeploy
-      #   run: cd k8s-web-h
+  #     # - name: k8swebdeploy
+  #     #   run: cd k8s-web-h
 
-      # - name: k8swebdeploy
-      #   run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./
+  #     # - name: k8swebdeploy
+  #     #   run: cp k8s-web-h/package.json \k8s-web-h/package-lock.json \./
 
-      - name: k8swebdeploy
-        run: |
-         mkdir deploy | cp -r k8s-web-h \deploy.yml \./deploy/
+  #     - name: k8swebdeploy
+  #       run: |
+  #        mkdir deploy | cp -r k8s-web-h \deploy.yml \./deploy/
 
-      - name: build
-        run: docker build -t bharath6379/k8s-web:${{github.run_number}} ./deploy/k8s-web-h/
+  #     - name: build
+  #       run: docker build -t bharath6379/k8s-web:${{github.run_number}} ./deploy/k8s-web-h/
 
-      - name: dockerlogin
-        run: |
-         echo "${{secrets.DOCKERPASS}}" | docker login -u ${{secrets.DOCKERUSER}} --password-stdin
+  #     - name: dockerlogin
+  #       run: |
+  #        echo "${{secrets.DOCKERPASS}}" | docker login -u ${{secrets.DOCKERUSER}} --password-stdin
 
-      - name: dockerpush
-        run: docker push bharath6379/k8s-web:${{github.run_number}}
+  #     - name: dockerpush
+  #       run: docker push bharath6379/k8s-web:${{github.run_number}}
+
+  deploy:
+   runs-on: ubuntu-latest
+   # needs: build
+   steps:
+    - name: k8s-web
+      uses: actions/checkout@v4
+    - name: aws config
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
+        aws-secret-access-key: ${{secrets.AWS_SCERET_ACCESS_KEY}}
+        aws-region: ap-south-2
+
+    - name: s3 bucket connect
+      run: |
+       aws s3 sync ./ s3://project-bucket-cicd-1/
+       
+      
+    # - name: docker pull
+    #   run: docker pull bharath6379/k8s-web:${{github.run_number}}
+
+    # - name: git push
+    #   run: |
+    #    git config --global --add safe.directory .
+    # - name: git pushing
+    #   run: |   
+    #    git remote add origin  https://github.com/nandhinics741-hash/kubernetes \git add .
+    # - name: git pushing
+    #   run: |    
+    #    git commit -m "deploy file" \
+    #    git push origin main
+      
+   
