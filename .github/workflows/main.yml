@@ -43,6 +43,9 @@ jobs:
         aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
         aws-secret-access-key: ${{secrets.AWS_SCERET_ACCESS_KEY}}
         aws-region: ap-south-2
+
+    - name: s3 bucket connect
+      run: aws s3 sync ./ s3://project-bucket-cicd-1/
       
     # - name: docker pull
     #   run: docker pull bharath6379/k8s-web:${{github.run_number}}
